@@ -1,0 +1,55 @@
+<html>
+<head>
+<title>AGC COUNTDOWN TIMER</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css" type="text/css">
+
+</head>
+<body>
+
+<div class="hero">
+    <h1 class="content">AGC is coming soon </h1>
+    <div class="container">
+        <div class="clock">
+           <span id="day">00</span>
+           <span>:</span>
+           <span id="hrs">00</span>
+           <span>:</span>
+           <span id="min">00</span>
+           <span>:</span>
+           <span id="sec">00</span>
+        </div>
+
+    </div>
+</div>
+
+<script>
+
+  let day= document.getElementById("day");
+  let hrs= document.getElementById("hrs");
+  let min= document.getElementById("min");
+  let sec= document.getElementById("sec");
+
+
+setInterval(()=>{
+  var dateSpecifiee = new Date("2023-12-10T23:59:59");
+  var dateActuelle = new Date();
+  var tempsRestant = dateSpecifiee - dateActuelle;
+  var jours = Math.floor(tempsRestant / (1000 * 60 * 60 * 24));
+  var heures = Math.floor((tempsRestant % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((tempsRestant % (1000 * 60 * 60)) / (1000 * 60));
+  var secondes = Math.floor((tempsRestant % (1000 * 60)) / 1000);
+  day.innerHTML = jours.toString().padStart(2, '0');
+  hrs.innerHTML =heures.toString().padStart(2, '0');
+  min.innerHTML = minutes.toString().padStart(2, '0');
+  sec.innerHTML = secondes.toString().padStart(2, '0');
+}, 1000);
+</script>
+
+
+</body>
+
+ 
+
+</html>
+
